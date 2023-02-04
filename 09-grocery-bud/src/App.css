@@ -168,12 +168,13 @@ Grocery List
     box-shadow: var(--light-shadow);
     transition: var(--transition);
     padding: 2rem;
+    padding-top: 1rem;
 }
 .section-center:hover {
     box-shadow: var(--dark-shadow);
 }
 .alert {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     height: 1.25rem;
     display: grid;
     align-items: center;
