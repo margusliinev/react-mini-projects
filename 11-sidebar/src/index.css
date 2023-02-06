@@ -204,7 +204,6 @@ Modal
     background: rgba(0, 0, 0, 0.5);
     display: grid;
     place-items: center;
-    transition: var(--transition);
     visibility: hidden;
     z-index: -1;
 }
