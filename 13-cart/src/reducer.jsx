@@ -25,6 +25,20 @@ const reducer = (state, action) => {
             .filter((cartItem) => cartItem.amount !== 0);
         return { ...state, cart: tempCart };
     }
+    if (action.type === 'GET_TOTAL') {
+        let { total, amount } = state.cart.reduce(
+            (cartTotal, cartItem) => {
+                const { price, amount } = cartItem;
+                const itemTotalPrice = price * amount;
+                cartTotal.amount = cartTotal.amount + amount;
+                cartTotal.total = cartTotal.total + itemTotalPrice;
+                return cartTotal;
+            },
+            { total: 0, amount: 0 }
+        );
+        total = parseFloat(total.toFixed(2));
+        return { ...state, total, amount };
+    }
     return state;
 };
 
