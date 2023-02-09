@@ -38,7 +38,9 @@ function App() {
     }, []);
 
     const handleValue = (e) => {
-        console.log(e.target);
+        let hoverValue = e.currentTarget.dataset.label;
+        setTitle(`${hoverValue}`);
+        setValue(person[hoverValue]);
     };
 
     return (
