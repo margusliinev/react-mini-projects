@@ -27,3 +27,6 @@ This is a repository for small practice projects built with React.
 11. Sidebar
 12. Stripe Menus
 13. Cart
+14. Markdown Preview
+15. Random User
+16. Pagination
