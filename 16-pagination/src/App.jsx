@@ -7,10 +7,34 @@ function App() {
     const [page, setPage] = useState(0);
     const [followers, setFollowers] = useState([]);
 
+    const handlePage = (index) => {
+        setPage(index);
+    };
+
+    const nextPage = () => {
+        setPage((oldPage) => {
+            let nextPage = oldPage + 1;
+            if (nextPage > data.length - 1) {
+                nextPage = 0;
+            }
+            return nextPage;
+        });
+    };
+
+    const prevPage = () => {
+        setPage((oldPage) => {
+            let nextPage = oldPage - 1;
+            if (nextPage < 0) {
+                nextPage = data.length - 1;
+            }
+            return nextPage;
+        });
+    };
+
     useEffect(() => {
         if (loading) return;
         setFollowers(data[page]);
-    }, [loading]);
+    }, [loading, page]);
 
     return (
         <main>
@@ -24,6 +48,23 @@ function App() {
                         return <Follower key={follower.id} {...follower} />;
                     })}
                 </div>
+                {!loading && (
+                    <div className='btn-container'>
+                        <button className='prev-btn' onClick={prevPage}>
+                            prev
+                        </button>
+                        {data.map((_, index) => {
+                            return (
+                                <button key={index} className={index === page ? 'page-btn active-btn' : 'page-btn'} onClick={() => handlePage(index)}>
+                                    {index + 1}
+                                </button>
+                            );
+                        })}
+                        <button className='next-btn' onClick={nextPage}>
+                            next
+                        </button>
+                    </div>
+                )}
             </section>
         </main>
     );
