@@ -5,7 +5,7 @@ import Loading from './Loading';
 import Modal from './Modal';
 
 function App() {
-    const { waiting, loading, questions, index, correct } = useContext(AppContext);
+    const { waiting, loading, questions, index, correct, nextQuestion, checkAnswer } = useContext(AppContext);
     if (waiting) {
         return <SetupForm />;
     }
@@ -14,6 +14,7 @@ function App() {
     }
     const { question, incorrect_answers, correct_answer } = questions[index];
     const answers = [...incorrect_answers, correct_answer];
+
     return (
         <main>
             {/* <Modal/> */}
@@ -25,11 +26,13 @@ function App() {
                     <h2 dangerouslySetInnerHTML={{ __html: question }}></h2>
                     <div className='btn-container'>
                         {answers.map((answer, index) => {
-                            return <button key={index} className='answer-btn' dangerouslySetInnerHTML={{ __html: answer }}></button>;
+                            return <button key={index} className='answer-btn' onClick={() => checkAnswer(correct_answer === answer)} dangerouslySetInnerHTML={{ __html: answer }}></button>;
                         })}
                     </div>
                 </article>
-                <button className='next-question'>next question</button>
+                <button className='next-question' onClick={nextQuestion}>
+                    next question
+                </button>
             </section>
         </main>
     );
