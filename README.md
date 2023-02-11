@@ -31,3 +31,4 @@ This is a repository for small practice projects built with React.
 15. Random User
 16. Pagination
 17. Dark Mode
+18. Hacker News
