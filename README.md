@@ -32,3 +32,4 @@ This is a repository for small practice projects built with React.
 16. Pagination
 17. Dark Mode
 18. Hacker News
+19. Quiz
