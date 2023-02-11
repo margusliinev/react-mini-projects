@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from './context';
 
 const Stories = () => {
-    const { isLoading, hits } = useContext(AppContext);
+    const { isLoading, hits, removeStory } = useContext(AppContext);
 
     if (isLoading) {
         return <div className='loading'></div>;
@@ -24,7 +24,9 @@ const Stories = () => {
                             <a href={url} target='_blank' className='read-link' rel='noopener noreferrer'>
                                 read more
                             </a>
-                            <button className='remove-btn'>remove</button>
+                            <button className='remove-btn' onClick={() => removeStory(objectID)}>
+                                remove
+                            </button>
                         </div>
                     </article>
                 );
