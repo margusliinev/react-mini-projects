@@ -70,16 +70,21 @@ const AppProvider = ({ children }) => {
 
     const closeModal = () => {
         setWaiting(true);
-        setCorrect(true);
+        setCorrect(0);
         setIsModalOpen(false);
     };
 
     const handleChange = (e) => {
-        console.log(e);
+        const name = e.target.name;
+        const value = e.target.value;
+        setQuiz({ ...quiz, [name]: value });
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const { amount, category, difficulty } = quiz;
+        const url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
+        fetchQuestions(url);
     };
 
     return <AppContext.Provider value={{ waiting, loading, questions, index, correct, error, isModalOpen, nextQuestion, checkAnswer, closeModal, quiz, handleChange, handleSubmit }}>{children}</AppContext.Provider>;
