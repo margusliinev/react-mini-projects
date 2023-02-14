@@ -33,6 +33,7 @@ html {
 body {
     font-family: var(--fontPrimary);
     line-height: 1.5;
+    background-color: var(--colorWhite);
 }
 
 img {
@@ -142,6 +143,113 @@ h6 {
         box-shadow: 0 -2em;
         height: 5em;
     }
+}
+
+section {
+    padding-top: 10rem;
+}
+
+/* NAVBAR */
+/* ==================================================================================================== */
+
+.nav {
+    position: fixed;
+    height: 5rem;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 3px 5px rgba(52, 102, 170, 0.5);
+    display: grid;
+    place-items: center;
+    scroll-margin-top: 5rem;
+}
+
+.nav-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 1.5rem;
+}
+
+.nav-title {
+    color: var(--colorBlack);
+}
+
+.nav-title span {
+    color: var(--colorBlue);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-link {
+    color: var(--colorBlack);
+    transition: var(--transition);
+}
+
+.nav-link:hover {
+    color: var(--colorBlue);
+}
+
+/* SEARCH FORM */
+/* ==================================================================================================== */
+
+.form {
+    display: grid;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0 0 6px rgba(17, 64, 132, 0.6);
+    row-gap: 0.75rem;
+}
+
+.search-label {
+    letter-spacing: var(--letterSpacing);
+}
+
+.search-input {
+    font-size: 1rem;
+    padding: 0.25rem 1rem;
+    background-color: #d2e6f4;
+    border: 1px solid var(--colorLightBlue);
+    border-radius: var(--borderRadius);
+}
+
+.search-input:focus {
+    outline: none;
+    box-shadow: 0 0 2px rgba(17, 64, 132, 0.3);
+}
+
+/* COCKTAIL LIST */
+/* ==================================================================================================== */
+
+.cocktails {
+    margin-top: 5rem;
+}
+
+.cocktails-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cocktails-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 90vw;
+    row-gap: 2rem;
+    margin: 0 auto;
+}
+
+.cocktail {
+    display: grid;
+    row-gap: 1rem;
+    background-color: white;
+    box-shadow: 0 0 6px rgba(17, 64, 132, 0.6);
 }
 
 /* END */
