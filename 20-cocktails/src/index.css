@@ -147,6 +147,7 @@ h6 {
 
 section {
     padding-top: 10rem;
+    padding-bottom: 5rem;
 }
 
 /* NAVBAR */
@@ -240,9 +241,10 @@ section {
 .cocktails-container {
     display: grid;
     grid-template-columns: 1fr;
-    width: 90vw;
+    width: 80vw;
     row-gap: 2rem;
     margin: 0 auto;
+    max-width: 1200px;
 }
 
 .cocktail {
@@ -250,6 +252,97 @@ section {
     row-gap: 1rem;
     background-color: white;
     box-shadow: 0 0 6px rgba(17, 64, 132, 0.6);
+}
+
+.cocktail-info {
+    padding: 0rem 1rem 1rem 1rem;
+}
+
+.cocktail-name {
+    letter-spacing: var(--letterSpacing);
+}
+
+.cocktail-glass {
+    font-weight: 500;
+}
+
+.cocktail-desc {
+    letter-spacing: 0;
+    font-size: 0.875rem;
+    color: var(--colorGrey);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+
+.cocktail-button {
+    background-color: var(--colorBlue);
+    color: white;
+    padding: 0.3rem 0.6rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--borderRadius);
+    letter-spacing: var(--letterSpacing);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cocktail-button:hover {
+    background-color: var(--colorDarkBlue);
+}
+
+@media screen and (min-width: 768px) {
+    .cocktails-container {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .cocktails-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* ABOUT & ERROR */
+/* ==================================================================================================== */
+
+.about-page {
+    text-align: left;
+    line-height: 2;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.error-page {
+    text-align: center;
+    line-height: 2;
+    margin: 0 auto;
+}
+
+.go-home-btn {
+    background-color: var(--colorBlue);
+    color: white;
+    padding: 0.25rem 0.6rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--borderRadius);
+    letter-spacing: var(--letterSpacing);
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+.go-home-btn:hover {
+    background-color: var(--colorDarkBlue);
+}
+
+@media screen and (min-width: 768px) {
+    .about-page,
+    .error-page {
+        max-width: 700px;
+    }
 }
 
 /* END */

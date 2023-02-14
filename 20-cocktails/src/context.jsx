@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
             setLoading(false);
             setCocktails(response.data.drinks);
         } else {
-            throw new Error('There was a error');
+            setLoading(true);
         }
     };
 

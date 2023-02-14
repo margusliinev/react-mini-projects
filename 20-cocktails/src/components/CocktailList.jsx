@@ -18,10 +18,12 @@ const CocktailList = () => {
                         <article key={idDrink} className='cocktail'>
                             <img src={strDrinkThumb} alt={strDrink} className='cocktail-img' />
                             <div className='cocktail-info'>
-                                <h4>{strDrink}</h4>
-                                <h4 className='cocktail-glass'>{strGlass}</h4>
+                                <h3 className='cocktail-name'>{strDrink}</h3>
+                                <h5 className='cocktail-glass'>{strGlass}</h5>
                                 <h6 className='cocktail-desc'>{strAlcoholic}</h6>
-                                <button type='button'>Details</button>
+                                <button type='button' className='cocktail-button'>
+                                    Details
+                                </button>
                             </div>
                         </article>
                     );
