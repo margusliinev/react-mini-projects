@@ -1,29 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a';
+const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
     const [cocktails, setCocktails] = useState([]);
+    const [searchTerm, setSearchTerm] = useState('a');
 
-    const fetchCocktails = async (url) => {
-        const response = await axios(url).catch((err) => console.log(err));
-        if (response) {
-            setLoading(false);
-            setCocktails(response.data.drinks);
+    const fetchCocktails = async () => {
+        setLoading(true);
+        const response = await axios(`${url}${searchTerm}`).catch((err) => console.log(err));
+        const data = response.data.drinks;
+        if (data) {
+            const drinks = data.map(({ idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass }) => {
+                return { id: idDrink, name: strDrink, image: strDrinkThumb, category: strAlcoholic, glass: strGlass };
+            });
+            setCocktails(drinks);
         } else {
-            setLoading(true);
+            setCocktails([]);
         }
+        setLoading(false);
     };
 
     useEffect(() => {
-        fetchCocktails(url);
-    }, []);
+        fetchCocktails();
+    }, [searchTerm]);
 
-    return <AppContext.Provider value={{ loading, cocktails }}>{children}</AppContext.Provider>;
+    return <AppContext.Provider value={{ loading, cocktails, searchTerm, setSearchTerm }}>{children}</AppContext.Provider>;
 };
 
 export { AppContext, AppProvider };

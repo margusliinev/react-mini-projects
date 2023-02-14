@@ -1,5 +1,5 @@
 const SingleCocktail = () => {
-    return <div>SingleCocktail</div>;
+    return <section>SingleCocktail</section>;
 };
 
 export default SingleCocktail;
