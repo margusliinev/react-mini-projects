@@ -10,7 +10,6 @@ This is a repository for small practice projects built with React.
 -   CSS
 -   Javascript
 -   React
--   React-Icons Library
 
 ## Projects
 
